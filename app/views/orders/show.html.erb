@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @order.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @order.address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @order.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @order.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @order.zip %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <strong>Ship tracking number:</strong>
+  <%= @order.ship_tracking_number %>
+</p>
+
+<p>
+  <strong>Ship label url:</strong>
+  <%= @order.ship_label_url %>
+</p>
+
+<p>
+  <strong>Ship label url zpl:</strong>
+  <%= @order.ship_label_url_zpl %>
+</p>
+
+<p>
+  <strong>Return tracking number:</strong>
+  <%= @order.return_tracking_number %>
+</p>
+
+<p>
+  <strong>Return label url:</strong>
+  <%= @order.return_label_url %>
+</p>
+
+<p>
+  <strong>Return label url zpl:</strong>
+  <%= @order.return_label_url_zpl %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,2 @@
+json.extract! order, :id, :name, :address1, :address2, :city, :state, :zip, :phone, :ship_tracking_number, :ship_label_url, :ship_label_url_zpl, :return_tracking_number, :return_label_url, :return_label_url_zpl, :created_at, :updated_at
+json.url order_url(order, format: :json)

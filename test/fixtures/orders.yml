@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  ship_tracking_number: MyString
+  ship_label_url: MyString
+  ship_label_url_zpl: MyString
+  return_tracking_number: MyString
+  return_label_url: MyString
+  return_label_url_zpl: MyString
+
+two:
+  name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  ship_tracking_number: MyString
+  ship_label_url: MyString
+  ship_label_url_zpl: MyString
+  return_tracking_number: MyString
+  return_label_url: MyString
+  return_label_url_zpl: MyString

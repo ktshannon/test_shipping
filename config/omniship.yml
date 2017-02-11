@@ -1,0 +1,11 @@
+development:
+  ups:
+    key:
+    username:
+    password: 
+  fedex:
+    key:
+    password:
+    account:
+    meter:
+  usps:
