@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to make this work
 
-Things you may want to cover:
+**S3**
 
-* Ruby version
+You'll need to setup credentials for your S3 Login.
+https://aws.amazon.com/developers/access-keys/
 
-* System dependencies
+Once you do that, you'll need to go into your S3 service and create a "Bucket".
+You can name the bucket whatever you want, but will need to configure the name in the Order Model.
 
-* Configuration
+Also, within the newly created bucket, you will need to create a "labels" folder.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Inside the "labels" folder, you will need to create 2 more subdirectories "shipping" and "returns". Once these are setup, you're done from the S3 end.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+**Rails**
+
+Inside Order.rb, you will need to update the UPS Account info and login info (unless using yml)
+
+This code is now directly integrated into the Order class, which can then be replicated throughout all of your applications. Simply you just need instantiate an order (order = Order.find(1)) and then run order.generate_both_labels and this will do everything. It will save the urls and tracking information into the order.
+
+I created a test order by running the follow in the rails console:
+
+order = Order.create({name: "Kyle Test", address1: "123 Broadway", address2: "Suite 1", city: "New York", state: "NY", zip: "10010", phone: "1231231234"})
+
+order.generate_both_labels
+
+This will do everything needed to create shipping and return labels with zpl and tracking numbers saved to the order database.
+
+
