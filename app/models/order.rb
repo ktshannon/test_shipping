@@ -27,7 +27,6 @@ class Order < ActiveRecord::Base
 
     send_options[:origin_account]      = UPS_ACCOUNT_NUMBER  # replace with shipper account ID
     send_options[:service]             = DEFAULT_UPS_SERVICE # GROUND reference from the default services table
-
     if return_code
       send_options[:return_service_code] = "9"
       send_options[:shipper]             = to_address
@@ -86,7 +85,15 @@ class Order < ActiveRecord::Base
   def create_package(height = 12, width = 12, length = 12, weight = 1, return_code = nil)
     pkg_list = []
     package_type = "02"
-    options = {package_type: package_type, package_description: "Package Description"}
+
+    # Package Metric Conversions
+    height = height * 2.54
+    width = width * 2.54
+    length = length * 2.54
+    weight = weight * 453.592
+    # Package Metric Conversions
+
+    options = {package_type: package_type, package_description: "Package Description", units: "imperial"}
     options[:references] = [{:code => "RZ", :value=>"RET #{return_code}"}] if return_code
     pkg_list << Omniship::Package.new(weight.to_i,[length.to_i,width.to_i,height.to_i],options)
     return pkg_list
